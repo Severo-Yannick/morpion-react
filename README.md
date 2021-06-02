@@ -182,3 +182,17 @@ Note that the development build is not optimized.
 To create a production build, use npm run build.
 ```
 
+### 1. Ouvrez src/index.js dans votre dossier morpion
+Nous avons fourni la mise en forme CSS afin que vous puissiez vous concentrer sur l’apprentissage de React et la programmation du jeu de morpion.
+
+En examinant le code, vous remarquerez que nous avons trois composants React :
+
+- Square
+- Board
+- Game
+
+Le composant Square affiche un unique `<button>` et le Board affiche 9 cases. Le composant Game affiche un plateau avec des valeurs temporaires que nous modifierons plus tard. À ce stade, aucun composant n’est interactif.
+
+👋 suivre les commits...
+
+
