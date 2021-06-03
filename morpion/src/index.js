@@ -3,32 +3,40 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 class Square extends React.Component {
-  constructor(props) {
-    super(props);
-    // ICI j'initialise l'état local
-    this.state = {
-      value: null,
-    }
-  }
-
   render() {
     return (
       // ICI je mes à jour le gestionnaire d'évènement click sur mes buttons
       <button 
         className="square" 
-        onClick={() => this.setState({value:'X'})}
+        onClick={() => this.props.onClick()}
       >
-        {/* ICI je passe la value au state de Square */}
-        {this.state.value}
+        {this.props.value}
       </button>
     );
   }
 }
 
 class Board extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      squares: Array(9).fill(null),
+    }
+  }
+  
+  handleClick(i) {
+    const squares = this.state.squares.slice();
+    squares[i] = 'X';
+    this.setState({squares: squares});
+  }
+
   renderSquare(i) {
-    // ICI je passe une prop appelée value au Square :
-    return <Square value={i}/>;
+    return (
+      <Square 
+        value={this.state.squares[i]}
+        onClick={() => this.handleClick(i)}
+      />
+    );
   }
 
   render() {
